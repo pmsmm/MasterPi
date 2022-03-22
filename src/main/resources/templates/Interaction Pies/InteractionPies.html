@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>Interaction Pies</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home">Peddy Room System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/museum">Museum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/interactionpies">Interaction Pies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/databases">Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/escapetheroom">Escape The Room</a>
+                        <a class="dropdown-item" href="#">Peddy Paper</a>
+                        <a class="dropdown-item" href="#">Who Wants To Be An Engineer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Interaction Pies</h1>
+                <p>This is the page that allows the users to manage all the Interaction Pies that are present in the Museum.
+                Here you can add new Interaction Pies to the system so that they can participate in the execution of the games
+                they are prepared to execute as well as remove them from the system when such is required. To also check system
+                health, users can use the Status Page to check the health of each Interaction Pi.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3" style="margin: auto auto 5px;">
+                    <h2 style="text-align: center;">Add Interaction Pi</h2>
+                    <p>Here an administrator can choose to add a new Interaction Pi to the system so as to increase the number
+                        of machines that contribute to the execution of the several available games or that allow the museum
+                        to cover a new area with a new machine deployed for that purpose.</p>
+                    <p style="text-align: center;"><a class="btn btn-secondary" href="/interactionpies/add" role="button">Add New Interaction Pi »</a></p>
+                </div>
+                <div class="col-md-3" style="margin: auto auto 5px;">
+                    <h2 style="text-align: center;">All Interaction Pies</h2>
+                    <p>See all of the Interaction Pies that are present in the system (This might just be removed and moved to
+                        the homepage of this endpoint)</p>
+                    <p style="text-align: center;"><a class="btn btn-secondary" href="/interactionpies/all" role="button">Check All Interaction Pies »</a></p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </main>
+
+</body>
+</html>

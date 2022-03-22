@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Escape The Room - Instances</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home">Peddy Room System</a>
+        <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/museum">Museum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/interactionpies">Interaction Pies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/databases">Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle active" data-toggle="dropdown"
+                       href="#" id="navbarDropdownMenuLink" role="button">
+                        Games
+                    </a>
+                    <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+                        <a class="dropdown-item active" href="/escapetheroom">Escape The Room</a>
+                        <a class="dropdown-item" href="#">Peddy Paper</a>
+                        <a class="dropdown-item" href="#">Who Wants To Be An Engineer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Escape The Room Instances</h1>
+                <p>On this page an Administrator can check how many Escape The Room instances have been created but not yet
+                    started. This gives a quick overview of the main information of each instance such as number of
+                    participants
+                    and state, and from here access to the management page of that instance.</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="col-md-8 col-md-offset-8" style="margin: auto;border: 3px;padding: 10px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Instance ID</th>
+                    <th scope="col">Group Name</th>
+                    <th scope="col">Number of Participants</th>
+                    <th scope="col">State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="instance : ${EscapeTheRoomInstances}">
+                    <td><span th:text="${instance.getCreationDate()}">Instance ID</span></td>
+                    <td><span th:text="${instance.getGroupName()}">Group Name</span></td>
+                    <td><span th:text="${instance.getAllParticipants().size()}">Number of Participants</span></td>
+                    <td><span style="font-weight: bold" th:text="${instance.getGameState().toString()}">State</span></td>
+                    <td style="text-align: center">
+                        <form method="get" th:action="@{/escapetheroom/instances/{id}(id = ${instance.getCreationDate()})}">
+                            <button class="btn btn-primary" type="submit">Manage Instance</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

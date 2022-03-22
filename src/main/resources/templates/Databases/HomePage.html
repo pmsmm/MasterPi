@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>Databases</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home">Peddy Room System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/museum">Museum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/interactionpies">Interaction Pies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/databases">Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/escapetheroom">Escape The Room</a>
+                        <a class="dropdown-item" href="#">Peddy Paper</a>
+                        <a class="dropdown-item" href="#">Who Wants To Be An Engineer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<main role="main">
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Databases</h1>
+            <p>This is the databases page where all the information that has been gathered regarding the several games,
+            sensors, visitors and participants can be seen. From here, operations on the several databases can be performed
+            so as to see and/or manipulate data.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" style="margin: auto auto 5px;">
+                <h2 style="text-align: center">Games Databases</h2>
+                <p>This is where all the databases corresponding to each game that is currently deployed or has been deployed
+                in the museum can be checked to see the leaderboards of that game, the players that have participated in these
+                games as well as many other pieces of information regarding them.</p>
+                <p style="text-align: center"><a class="btn btn-secondary" href="/databases/games" role="button">Games Databases »</a></p>
+            </div>
+            <div class="col-md-4" style="margin: auto auto 5px;">
+                <h2 style="text-align: center">Sensors Databases</h2>
+                <p>This is where sensors databases can viewed. These databases contain past information regarding the values
+                acquired by the several types of sensors (Temperature, Humidity, Light, Sound, etc...). These can then be
+                used to study the environmental conditions of the museum and make adjustments accordingly.</p>
+                <p style="text-align: center"><a class="btn btn-secondary" href="/databases/sensors" role="button">Sensors Databases »</a></p>
+            </div>
+            <div class="col-md-4" style="margin: auto auto 5px;">
+                <h2 style="text-align: center">Devices Database</h2>
+                <p>This is where the several types of devices that are deployed in the museum can be consulted in order to
+                see their source code (if applicable), their diagrams (if applicable), their CAD Files (if applicable) and
+                many other relevant pieces of information regarding the devices.</p>
+                <p style="text-align: center"><a class="btn btn-secondary" href="#" role="button">Devices Database »</a></p>
+            </div>
+        </div>
+        <hr>
+    </div>
+</main>
+
+</body>
+</html>

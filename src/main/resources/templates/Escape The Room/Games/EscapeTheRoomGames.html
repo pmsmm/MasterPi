@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>Escape The Room - Games</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home">Peddy Room System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/museum">Museum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/interactionpies">Interaction Pies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/databases">Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item active" href="/escapetheroom">Escape The Room</a>
+                        <a class="dropdown-item" href="#">Peddy Paper</a>
+                        <a class="dropdown-item" href="#">Who Wants To Be An Engineer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" th:object="${Escape_The_Room_Instance}">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">The Games Interface</h1>
+                <p>Congratulations discovering this interface but now that you are here, do you know what this is for? If
+                you don't know, then that's a shame, but as a form of encouragement in order for you to succeed, here are
+                some wise words: The Clock Keeps on Ticking.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3" style="margin: auto auto 5px;" th:if="${Escape_The_Room_Instance.containsInteraction('MorseCodeInteraction')}">
+                    <h2 style="text-align: center">The Message Hidden in the Morse</h2>
+                    <p>So you have figured out how to interpret Morse Code? Lets see if your interpretation is as correct
+                        as you think it is.</p>
+                    <p style="text-align: center"><a class="btn btn-secondary" th:href="@{/escapetheroom/instances/{id}/games/MorseCode(id = ${id})}" role="button">Hidden in Morse »</a></p>
+                </div>
+                <div class="col-md-3" style="margin: auto auto 5px;" th:if="${Escape_The_Room_Instance.containsInteraction('CryptoServoInteraction')}">
+                    <h2 style="text-align: center">Caesar's Secret</h2>
+                    <p>"Friends, Romans, countrymen, lend me your ears; I come to bury Caesar, not to praise him." -Antony, Act 3, Scene 2..</p>
+                    <p style="text-align: center"><a class="btn btn-secondary" th:href="@{/escapetheroom/instances/{id}/games/CryptoServo(id = ${id})}" role="button">Caesar's Secret »</a></p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </main>
+
+</body>
+</html>

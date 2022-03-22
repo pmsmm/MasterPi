@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="https://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Escape The Room - Participants</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home">Peddy Room System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/museum">Museum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/interactionpies">Interaction Pies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/databases">Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item active" href="/escapetheroom">Escape The Room</a>
+                        <a class="dropdown-item" href="#">Peddy Paper</a>
+                        <a class="dropdown-item" href="#">Who Wants To Be An Engineer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Escape The Room Participants</h1>
+                <p>On this page an Administrator can check which participants are currently signed up to participate in this
+                instance of Escape The Room. From here, participants that are already signed up can be removed or have their
+                information changed and more participants can be added until the maximum number of participants is reached.</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="container" style="align-items: center; display: flex; justify-content: center">
+        <div class="row">
+
+            <div class="col-md-3">
+                <h2>Add New Participant</h2>
+                <p>Add a new participant to this Escape The Room instance until a maximum of four participants. It is mandatory for a group to have at least
+                    two participants and at most four.</p>
+                <p><a class="btn btn-secondary" role="button"
+                      th:href="@{/escapetheroom/instances/{id}/participants/add(id = ${id})}" style="color: white;">Add Participant »</a></p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>Remove All Participants</h2>
+                <p>Remove all of the participants currently taking part in this Escape The Room.</p>
+                <p><a class="btn btn-secondary" role="button"
+                      th:href="@{/escapetheroom/instances/{id}/participants/remove/all(id = ${id})}" style="color: white;">Remove All Participants »</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-7 col-md-offset-7" style="margin: auto; margin-top: 20px; text-align: center;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Age</th>
+                <th scope="col">Gender</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="participant : ${Participants}">
+                <td><span th:text="${participant.getFirstName()}">First Name</span></td>
+                <td><span th:text="${participant.getLastName()}">Last Name</span></td>
+                <td><span th:text="${participant.getEmailAddress()}">Email Address</span></td>
+                <td><span th:text="${participant.getAge()}">Age</span></td>
+                <td><span th:text="${participant.getGender()}">Gender</span></td>
+                <td>
+                    <form method="post" th:action="@{/escapetheroom/instances/{id}/participants/remove/{participantID}(id = ${EscapeTheRoomID}, participantID = ${participant.getID()})}">
+                        <button class="btn btn-primary" type="submit" style="background-color: red; border-color: red;">Remove Participant</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
